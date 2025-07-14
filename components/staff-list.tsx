@@ -9,11 +9,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useRouter } from 'next/navigation'
 
 interface StaffListProps {
-  onDriverSelect: (driverId: string) => void
-  onPASelect: (paId: string) => void
+  /**
+   * Search query used to filter staff by name.
+   */
+  search?: string
+  /**
+   * Role filter coming from the parent tabs.
+   */
+  role: "all" | "driver" | "assistant"
 }
 
-export function StaffList({ onDriverSelect, onPASelect }: StaffListProps) {
+export function StaffList({ search = "", role }: StaffListProps) {
   const [nameFilter, setNameFilter] = useState('')
   const [roleFilter, setRoleFilter] = useState('All')
   const [statusFilter, setStatusFilter] = useState('All')
@@ -40,13 +46,27 @@ export function StaffList({ onDriverSelect, onPASelect }: StaffListProps) {
     },
   ]
 
-  const filteredStaff = staffMembers.filter(staff => 
-    staff.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
-    (roleFilter === 'All' || staff.role === roleFilter) &&
-    (statusFilter === 'All' || staff.status === statusFilter) &&
-    (callNoFilter === '' || staff.callNo.toLowerCase().includes(callNoFilter.toLowerCase())) &&
-    (!expiryDateFilter || staff.expiryDate <= expiryDateFilter)
-  )
+  const filteredStaff = staffMembers.filter((staff) => {
+    const matchesSearch = staff.name.toLowerCase().includes(search.toLowerCase())
+    const matchesNameFilter = staff.name.toLowerCase().includes(nameFilter.toLowerCase())
+    const matchesRoleTab =
+      role === "all" || (role === "driver" && staff.role === "Driver") || (role === "assistant" && staff.role === "PA")
+    const matchesRoleFilter = roleFilter === "All" || staff.role === roleFilter
+    const matchesStatusFilter = statusFilter === "All" || staff.status === statusFilter
+    const matchesCallNoFilter =
+      callNoFilter === "" || staff.callNo.toLowerCase().includes(callNoFilter.toLowerCase())
+    const matchesExpiryFilter = !expiryDateFilter || staff.expiryDate <= expiryDateFilter
+
+    return (
+      matchesSearch &&
+      matchesNameFilter &&
+      matchesRoleTab &&
+      matchesRoleFilter &&
+      matchesStatusFilter &&
+      matchesCallNoFilter &&
+      matchesExpiryFilter
+    )
+  })
 
   return (
     <Card>
