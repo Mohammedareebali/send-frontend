@@ -1,6 +1,5 @@
-import { DashboardHeader } from "@/components/dashboard-header"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { DocumentationReport } from "@/components/documentation-report"
-import { SidebarWrapper } from "@/components/sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
