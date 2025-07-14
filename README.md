@@ -1,3 +1,5 @@
+Other available scripts are defined in `package.json` and can be run with `pnpm` as well.
+=======
 # SEN Transport Control Center
 
 This project contains the frontend for a dashboard-style application built with **Next.js** and **React**. It showcases an administration panel used to manage school transport for children with special educational needs.
