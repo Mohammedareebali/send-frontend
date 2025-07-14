@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard-header"
-import { Sidebar } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { DriverDetails } from "@/components/driver-details"
 
 export default function DriverDetailsPage({ params }: { params: { id: string } }) {

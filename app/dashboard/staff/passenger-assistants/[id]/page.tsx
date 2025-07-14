@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { Sidebar } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { BackButton } from "@/components/back-button"
 import { StaffDetailHeader } from "@/components/staff-detail-header"
 import { StaffDetailTabs } from "@/components/staff-detail-tabs"
