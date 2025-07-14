@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { Sidebar } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"

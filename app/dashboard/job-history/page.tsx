@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard-header"
-import { SidebarWrapper } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import {
   Breadcrumb,
   BreadcrumbItem,

@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard-header"
-import { Sidebar } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { PassengerAssistantDetails } from "@/components/passenger-assistant-details"
 
 export default function PassengerAssistantDetailsPage({ params }: { params: { id: string } }) {

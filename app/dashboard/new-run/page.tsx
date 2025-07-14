@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard-header"
-import { Sidebar } from "@/components/sidebar"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { BookingForm } from "@/components/booking-form"
 import { ArrowLeft, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"

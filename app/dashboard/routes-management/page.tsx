@@ -1,4 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard-header"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { RoutesControlCenter } from "@/components/routes-control-center"
 import {
   Breadcrumb,

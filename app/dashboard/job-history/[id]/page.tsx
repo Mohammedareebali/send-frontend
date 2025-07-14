@@ -5,9 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Clock, AlertTriangle, CheckCircle, Truck, UserCheck, Printer } from "lucide-react"
-import { Sidebar } from "@/components/sidebar"
 import { BackButton } from "@/components/back-button"
-import { DashboardHeader } from "@/components/dashboard-header"
+import { DashboardHeader } from "@/components/layout/dashboard-header"
 import { Button } from "@/components/ui/button"
 
 // This would typically come from an API or database
