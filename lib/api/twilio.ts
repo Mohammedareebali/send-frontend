@@ -53,6 +53,19 @@ export class TwilioService {
             }
           }
 
+          const flattened: Record<string, string> = {}
+          for (const [key, value] of Object.entries(notificationData)) {
+            if (value && typeof value === "object" && !Array.isArray(value)) {
+              for (const [subKey, subValue] of Object.entries(value)) {
+                if (subValue !== undefined) {
+                  flattened[`${key}.${subKey}`] = String(subValue)
+                }
+              }
+            } else if (value !== undefined) {
+              flattened[key] = String(value)
+            }
+          }
+
           const response = await fetch(
             `https://notify.twilio.com/v1/Services/${this.config.serviceSid}/Notifications`,
             {
@@ -61,7 +74,7 @@ export class TwilioService {
                 "Content-Type": "application/x-www-form-urlencoded",
                 Authorization: `Basic ${Buffer.from(`${this.config.accountSid}:${this.config.authToken}`).toString("base64")}`,
               },
-              body: new URLSearchParams(notificationData).toString(),
+              body: new URLSearchParams(flattened).toString(),
             },
           )
 
